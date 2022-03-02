@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+
+<title>Digital Guitar PedalBoard</title>
+</head>
+
+
+<body>
+ 
+<div class="stage">
+    
+    <div class="masterSwitch">
+        <button data-playing="false" role="switch" aria-checked="false"><span>Play/Pause</span></button><br><br>
+        <input type="range" id="volume" min="0" max="2" value="1" step="0.01"><br><br>
+    </div>
+
+
+
+    <div class="pedalboard">
+
+
+
+    <!----------  DISTORTION PEDAL ------------>
+
+    <div class="distortion">
+        <div class="top-half">    
+            <div class="tone">Tone</div>
+            <div class="level">Level</div>
+        </div>
+            <div class="footswitch">
+                <input type="button" id="distortionButton" value="Distortion"><br>
+                <input type="range" id="distortion-tone" min="0" max="2" value="1" step="0.01"><br>Tone
+        </div>
+    </div>
+    <br><br>
+    <!---------------------------------------------->
+
+
+
+
+
+    <div class="reverb">
+
+            <!--  <audio id="reverbSource" src="media/reverb.mp3" ></audio> -->
+            <audio src="media/sample.mp3" ></audio>
+
+
+        <input type="button" id="reverbButton" value="Reverb">
+    </div>
+
+
+
+    </div><!--  pedalboard div end  -->
+
+</div><!--  stage div end  -->
+
+
+
+
+
+
+    <script src="javascript/pedalboard.js"></script>
+</body>
+</html>
+
+
+
