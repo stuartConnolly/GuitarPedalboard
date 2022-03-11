@@ -1,6 +1,10 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.3",
     "nodemon": "^2.0.15"
+=======
+    "express": "^4.17.3"
+>>>>>>> 4408848e9adb988838a0c9131dff0d90ca7af3c6
   }
 }
