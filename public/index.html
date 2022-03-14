@@ -22,7 +22,8 @@
     
     <div class="masterSwitch">
         <button data-playing="false" role="switch" aria-checked="false"><span>Play/Pause</span></button><br><br>
-        <input type="range" id="volume" min="0" max="2" value="1" step="0.01"><br><br>
+
+    <h2>Please turn your speakers/headphones down to protect your ears.</h2>
     </div>
 
 
@@ -30,45 +31,42 @@
 
     <div class="pedalboard">
 
+        <div class="boostPedal">
+            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
+            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div class="ledLightOff" id="boostLedLight"></div>
+            <div id="boostOnSwitch" class="onSwitch"></div>
+            <div class="text">Boost</div>
+        </div>
+
         <div class="distortionPedal">
             <div class="volume"><p id="vol-text">
             Volume
             </p></div>
-            <div class="tone"></div>
-            <div id="ledLightOff"></div>
-            <div id="distortionOnSwitch"></div>
+            <div class="tone"><p id="tone-text">
+                Tone
+                </p></div>
+            <div class="ledLightOff" id="distortionLedLight"></div>
+            <div id="distortionOnSwitch" class="onSwitch"></div>
             <div class="text">Distortion</div>
+            
         </div>
         
-        <div class="boostPedal">
-            <div class="volume"></div>
-            <div class="tone"></div>
-            <div class="ledLight"></div>
+
+        <div class="reverbPedal">
+            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
+            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div class="ledLightOff"></div>
             <div class="onSwitch"></div>
-            <div class="text">Boost</div>
+            <div class="text">Reverb</div>
         </div>
+
         
-        </div>
+        </div><!--  pedalboard div end  -->
 
-
-
-
-    <div class="footswitch">
-
-
+        <input type="range" id="volume" min="0" max="11" value="2" step="1">Master Volume<br><br>
+        <input type="range" id="boostVolume" min="0" max="11" value="7" step="1">Boost Level<br><br>
         <input type="range" id="distortionTone" min="20" max="300" value="150" step="10"><br>Distortion Tone
-</div>
-
-    <div class="pedalboard">
-
-
-
-    <!----------  DISTORTION PEDAL ------------>
-
-
-    <!---------------------------------------------->
-
-
 
 <!--  
     <div class="reverb">
@@ -78,7 +76,11 @@
 -->
 
 
-    </div><!--  pedalboard div end  -->
+
+
+
+    <div id="virtual_knob"><div id="knob"></div><div id="dial"></div></div>
+      
 
 </div><!--  stage div end  -->
 
