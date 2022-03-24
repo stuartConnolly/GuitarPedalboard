@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/aboutStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Lobster&display=swap" rel="stylesheet">
+
+
+<body>
+
+
+    <div class="navbar">
+        <ul>
+            <li><a href="pedalboard.html">Pedalboard</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="api.html">API</a></li>
+            <li><a href="chords.html">Chords</a></li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+
+        <h1>Digital Guitar PedalBoard</h1>
+
+        <h3>The Digital Guitar Pedalboard is created using HTML, CSS and JavaScript. Alongside the JavaScript is the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a>, an application programming interface that is used to either create sounds using frequencies, or, in this case, loading pre-existing sounds and altering those sounds. 
+        <br><br>
+        The diagram below indicates the flow or "chain" of the sound. The <strong>Audio Context</strong> is essentially the "stage" within which all the processing is done. 
+        <br><br>
+
+            <div class="audioContextImage">
+            <img src="./media/audiocontext.png" id="audioContextImage"></div><br>
+        The <strong>Input</strong> can consist of a compuer generated frequency, an input such as a mic or guitar or else an audio file. 
+        <br><br>
+        Once there is an input, the signal can be run through one or more <strong>Nodes</strong>. Nodes are points on the audio chain that take the Input and alter the signal in various ways, or add effects. The Web Audio API has several built in nodes that add certain effects to the signal, the same way as any pre-existing method would perform an action as part of any other JavaScript framework/library. 
+        <br><br>
+        As an example, there is a node that uses mathematics to alter the "shape" of the signal which results in the signal becoming distorted. Simialry there is a node that can be used to add a delayed effect to the signal. 
+        <br><br>
+        Finally, once the signal has passed through the appropriate nodes, it is routed to the <strong>Audio Destination</strong>. This can take the form of internal memory and be saved as an audio file, or more commonly, refers to speakers or headphones. 
+
+        </h3>
+
+    </div>
+
+
+
+
+
+</body>
+
+
+
+
+
+    <script type="module" src=""></script>
+</body>
+</html>
+
+
+

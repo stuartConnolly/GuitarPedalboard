@@ -1,0 +1,125 @@
+
+
+body{
+    margin: 0;
+    padding:0;
+    font-family: sans-serif;
+    background-image: url('../media/bg4.jpg');
+    background-size:cover;
+    display: grid;
+    grid-template-areas: 'login register'
+}
+
+/* ---- LOGIN ---- */
+
+
+.loginForm{
+
+    width: 300px;
+    padding: 30px;
+    margin: 10%;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+    grid-area: 'login';
+    justify-self: start;
+}
+
+.loginForm h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.loginForm input[type="text"], .loginForm input[type="password"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid black;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+}
+
+
+.loginForm input[type="submit"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid black;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+}
+
+.loginForm input[type="submit"]:hover {
+    background: black;
+}
+
+
+/* ---- REGISTER ---- */
+
+
+.registerForm {
+
+    width: 300px;
+    padding: 30px;
+    margin: 10%;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+    grid-area: 'register';
+    justify-self: end;
+}
+
+.registerForm h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.registerForm input[type="text"], .registerForm input[type="password"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid black;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+}
+
+
+.registerForm input[type="submit"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid black;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+}
+
+.registerForm input[type="submit"]:hover {
+    background: black;
+}
+

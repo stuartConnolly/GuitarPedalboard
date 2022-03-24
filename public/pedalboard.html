@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Lobster&display=swap" rel="stylesheet">
+
+
+
+
+<title>Digital Guitar PedalBoard</title>
+</head>
+
+
+<body>
+
+    <audio src="media/sample.mp3" ></audio>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="">Pedalboard</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="api.html">API</a></li>
+            <li><a href="chords.html">Chords</a></li>
+        </ul>
+    </div>
+
+<div class="stage">
+    <h1>Digital Guitar PedalBoard</h1>
+    <h2>Please turn your speakers/headphones down to protect your ears.</h2>
+
+    <div class="cabinet">
+        <div id="cabinetText">Cabinet</div>
+
+        <div id="goldBanner">
+
+
+            <button id="masterSwitch" data-playing="false" role="switch" aria-checked="false"><span> Master Switch </span></button><br><br>
+
+            <div id="masterVolume"><div id="knob"></div><div id="dial"></div></div>
+
+            <div id="treble"><div id="knob"></div><div id="dial"></div></div>
+
+            <div id="mid"><div id="knob"></div><div id="dial"></div></div>
+
+            <div id="bass"><div id="knob"></div><div id="dial"></div></div>
+
+<!--
+    
+            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+        
+            <div class="ledLightOff" id="cabinetLedLight"></div>
+    
+            <div id="cabinetOnSwitch" class="onSwitch"></div>
+-->
+        </div><!------end gold banner ------->
+
+
+
+    </div><!------end Cabinet ------->
+
+
+
+
+
+    <div class="pedalboard">
+
+
+        <div class="boostPedal">
+            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
+            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div class="ledLightOff" id="boostLedLight"></div>
+            <div id="boostOnSwitch" class="onSwitch"></div>
+            <div class="text">Boost</div>
+        </div>
+
+        <div class="distortionPedal">
+            <div class="volume"></div>
+            <div class="tone"></div>
+            <div class="ledLightOff" id="distortionLedLight"></div>
+            <div id="distortionOnSwitch" class="onSwitch"></div>
+            <div class="text">Distortion</div>
+            
+        </div>
+        
+
+        <div class="reverbPedal">
+            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
+            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div class="ledLightOff" id="reverbLedLight"></div>
+            <div id="reverbOnSwitch" class="onSwitch"></div>
+            <div class="text">Reverb</div>
+        </div>
+
+
+        <div class="tremoloPedal">
+            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
+            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div class="ledLightOff" id="tremoloLedLight"></div>
+            <div id="tremoloOnSwitch" class="onSwitch"></div>
+            <div class="text">Tremolo</div>
+        </div>
+
+        
+        </div><!--  pedalboard div end  -->
+
+        <input type="range" id="volume" min="0" max="10" value="1" step="0.5">Master Volume<br><br>
+
+        <input type="range" id="boostVolume" min="2" max="11" value="5" step="1">Boost Level<br><br>
+
+        <input type="range" id="distortionTone" min="20" max="300" value="150" step="10"><br>Distortion Tone
+
+
+
+
+      
+
+</div><!--  stage div end  -->
+
+
+
+<div id="virtual_knob"><div id="knob"></div><div id="dial"></div></div>
+
+
+
+    <script type="module" src="javascript/pedalboard.js"></script>
+</body>
+</html>
+
+
+

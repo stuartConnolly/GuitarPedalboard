@@ -1,97 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/loginStyle.css">
 
-
-
-
-<title>Digital Guitar PedalBoard</title>
+    <title>Login</title>
 </head>
-
-
 <body>
-
-    <audio src="media/sample.mp3" ></audio>
-
-<div class="stage">
     
-    <div class="masterSwitch">
-        <button data-playing="false" role="switch" aria-checked="false"><span>Play/Pause</span></button><br><br>
+  
+<form class="registerForm">
 
-    <h2>Please turn your speakers/headphones down to protect your ears.</h2>
-    </div>
+<h1>Register</h1>
+<label for="registerName"></label>
+    <input type="text" name="registerName" placeholder="Choose a Username">
+    <label for="registerPassword1"></label>
+    <input type="password" name="registerPassword1" placeholder="Choose a Password">
+    <label for="registerPassword2"></label>
+    <input type="password" name="registerPassword2" placeholder="Confirm Password">
+    <input type="submit" name="" value="Register">
+
+    <p>LOREM IPSUM</p>
+
+</form>
 
 
+<form class="loginForm">
+
+<h1>Login</h1>
 
 
-    <div class="pedalboard">
+    <label for="loginName"></label>
+    <input type="text" name="loginName" placeholder="Enter Username" required>
+    <label for="loginPassword"></label>
+    <input type="password" name="loginPassword" placeholder="Enter Password" required>
+    <input type="submit" name="" value="Login">
 
-        <div class="boostPedal">
-            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
-            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
-            <div class="ledLightOff" id="boostLedLight"></div>
-            <div id="boostOnSwitch" class="onSwitch"></div>
-            <div class="text">Boost</div>
-        </div>
+    <p>Guest users may use Guest as username and Pedalboard as password.</p>
 
-        <div class="distortionPedal">
-            <div class="volume"><p id="vol-text">
-            Volume
-            </p></div>
-            <div class="tone"><p id="tone-text">
-                Tone
-                </p></div>
-            <div class="ledLightOff" id="distortionLedLight"></div>
-            <div id="distortionOnSwitch" class="onSwitch"></div>
-            <div class="text">Distortion</div>
-            
-        </div>
-        
-
-        <div class="reverbPedal">
-            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
-            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
-            <div class="ledLightOff"></div>
-            <div class="onSwitch"></div>
-            <div class="text">Reverb</div>
-        </div>
-
-        
-        </div><!--  pedalboard div end  -->
-
-        <input type="range" id="volume" min="0" max="11" value="2" step="1">Master Volume<br><br>
-        <input type="range" id="boostVolume" min="0" max="11" value="7" step="1">Boost Level<br><br>
-        <input type="range" id="distortionTone" min="20" max="300" value="150" step="10"><br>Distortion Tone
-
-<!--  
-    <div class="reverb">
-         <audio id="reverbSource" src="media/reverb.mp3" ></audio> 
-        <input type="button" id="reverbButton" value="Reverb">
-    </div>
--->
+</form>
 
 
 
-
-
-    <div id="virtual_knob"><div id="knob"></div><div id="dial"></div></div>
-      
-
-</div><!--  stage div end  -->
+<footer></footer>
 
 
 
-
-
-
-    <script src="javascript/pedalboard.js"></script>
 </body>
 </html>
-
-
-
