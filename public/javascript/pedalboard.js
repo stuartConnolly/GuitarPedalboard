@@ -15,9 +15,11 @@ playButton.addEventListener('click', function() {
     if (this.dataset.playing === 'false') {
         audioElement.play();
         this.dataset.playing = 'true';
+        playButton.className = 'masterSwitchOn';
     } else if (this.dataset.playing === 'true') {
         audioElement.pause();
         this.dataset.playing = 'false';
+        playButton.className = 'masterSwitchOff';
     }
 
 }, false);
@@ -32,30 +34,145 @@ const audioContext = new AudioContext();
 const audioElement = document.querySelector('audio');
 // pass sample song into the audio context so we have access through "track"
 const track = audioContext.createMediaElementSource(audioElement);
-        
+      
+
+
+////////////////////   DRAGGABLE KNOBS   ////////////////////////////
+
+const knobAmounts = {
+    'masterVolume': 90,
+    'treble': 90,
+    'mid' : 90,
+    'bass': 90,
+    'boostGain' : 90,
+    'distortionFuzz' : 90,
+    'reverbMix' : 90,
+}
+
+let knobAmountWhenClicked = 0;
+let knobClickedId = ''
+let clientYClick;
+let clientY;
+
+
+const draggableKnobs = document.querySelectorAll('.draggable');
+
+draggableKnobs.forEach((draggableKnobElement)=> {
+    draggableKnobElement.addEventListener('mousedown', (event) =>{
+        clientYClick = clientY;
+        const id = event.currentTarget.id;
+        knobClickedId = id;
+        knobAmountWhenClicked = knobAmounts[knobClickedId];
+    });
+    draggableKnobElement.style.transform = `rotate(45deg)`;
+}); 
+
+
+document.addEventListener('mousemove', (e) => {
+    clientY = e.clientY;
+
+    if(knobClickedId) {
+        let delta = clientYClick - clientY;
+        const changeAmount = delta;
+        knobAmounts[knobClickedId] = knobAmountWhenClicked + changeAmount * 9;
+
+        if (knobAmounts[knobClickedId] > 315) {
+            knobAmounts[knobClickedId] = 315;
+        }
+        else if (knobAmounts[knobClickedId] < 45){
+            knobAmounts[knobClickedId] = 45;
+        }
+      
+
+        if (knobClickedId === "masterVolume") {
+            handleVolumeAmount();
+        }
+
+        const knob = document.getElementById(knobClickedId);
+        knob.style.transform = `rotate(${knobAmounts[knobClickedId]}deg)`
+    }
+
+})
+
+document.addEventListener('mouseup', () => {
+    knobClickedId = ''
+})
+
 
 // /////////////////////////   MASTER VOLUME    ///////////////////////////////
 
 const gainNode = audioContext.createGain();
-const volumeControl = document.querySelector('#volume');
+
 
 // grab volume range on DOM and target and change value
-volumeControl.addEventListener('input', function(event) {
- const target = event.target   //target is on volumeControl
-gainNode.gain.value = target.value; 
-});
+function handleVolumeAmount() {
+
+    // console.log("inside handle volume");    
+    // console.log(knobClickedId);
+    // console.log(knobAmounts[knobClickedId]);
+
+
+// while(knobAmounts[knobClickedId] <= 45) {console.log(gainNode.gain.value)};
+// while(knobAmounts[knobClickedId] > 45) {console.log(gainNode.gain.value)};
+// while(knobAmounts[knobClickedId] > 72) {console.log(gainNode.gain.value)};
+// while(knobAmounts[knobClickedId] > 99) {console.log(gainNode.gain.value)};
+// while(knobAmounts[knobClickedId] > 126) {gainNode.gain.value = 4};
+// while(knobAmounts[knobClickedId] > 153) {gainNode.gain.value = 5};
+// while(knobAmounts[knobClickedId] > 180) {gainNode.gain.value = 6};
+// while(knobAmounts[knobClickedId] > 207) {gainNode.gain.value = 7};
+// while(knobAmounts[knobClickedId] > 234) {gainNode.gain.value = 8};
+// while(knobAmounts[knobClickedId] > 261) {gainNode.gain.value = 9};
+// while(knobAmounts[knobClickedId] > 288) {gainNode.gain.value = 10};
+
+
+
+    if(knobAmounts[knobClickedId] < 46) {
+        gainNode.gain.value = 0; 
+        console.log(gainNode.gain.value);
+    } else if (knobAmounts[knobClickedId] > 45) {
+        gainNode.gain.value = 1; 
+    } else if (knobAmounts[knobClickedId] > 72) {
+        gainNode.gain.value = 2; 
+        console.log(gainNode.gain.value);
+    } else if (knobAmounts[knobClickedId] > 99) {
+        gainNode.gain.value = 3; 
+    } else if (knobAmounts[knobClickedId] > 126) {
+        gainNode.gain.value = 4; 
+        console.log(gainNode.gain.value);
+    } else if (knobAmounts[knobClickedId] > 153) {
+        gainNode.gain.value = 5; 
+    } else if (knobAmounts[knobClickedId] > 180) {
+        gainNode.gain.value = 6; 
+    } else if (knobAmounts[knobClickedId] > 207) {
+        gainNode.gain.value = 7; 
+        console.log(gainNode.gain.value);
+    } else if (knobAmounts[knobClickedId] > 234) {
+        gainNode.gain.value = 8; 
+    } else if (knobAmounts[knobClickedId] > 261) {
+        gainNode.gain.value = 9; 
+        console.log(gainNode.gain.value);
+    } else if (knobAmounts[knobClickedId] > 288) {
+        gainNode.gain.value = 10; 
+    } 
+
+
+};
+
+// if(knobClickedId == 'masterVolume') {
+//     gainNode.gain.value = 
+// }
 
 
 
 ///////////////////////////   Boost    ///////////////////////////////
 
 const boostNode = audioContext.createGain();
+let boostGainAmount = 90;
 
 //grab boost pedal buttons
 const boostOnSwitch = document.querySelector('#boostOnSwitch');
 const boostLedLight = document.querySelector('#boostLedLight');
-const boostVolume = document.querySelector('#boostVolume');
-//const boostTone = document.querySelector('#boostTone');
+const boostRange = document.querySelector('#boostRange');
 
 //add the event listeners to run the distortion functions
 boostOnSwitch.addEventListener('click', handleBoostOnOff); 
@@ -66,12 +183,12 @@ function handleBoostOnOff() {
     //if false == when turning pedal on
 if (boostActive == false) {
 
-    const boostValue = boostVolume.value;
+    const boostValue = boostRange.value;
     boostNode.gain.value = boostValue;
     boostActive = true;
 
     //grabs the BOOST VOLUME slider
-    boostVolume.addEventListener('input', handleBoostAmount);
+    boostRange.addEventListener('input', handleBoostAmount);
 
     //targets the value of the DISTORTION TONE slider and changes it
     function handleBoostAmount(event) {
@@ -244,15 +361,13 @@ if (reverbActive == false) {
 // tremoloOnSwitch.addEventListener('click', handleTremoloOnOff); 
 
 
-// let tremoloActive = false;
-// const tremoloNode = new tuna.Tremolo({
-//     rate: 1.5,
-//     feedback: 0.2,
-//     delay: 0.0045,
-//     bypass: 0
-// })
-
-
+// // let tremoloActive = false;
+// // const tremoloNode = new tuna.Tremolo({
+// //     rate: 1.5,
+// //     feedback: 0.2,
+// //     delay: 0.0045,
+// //     bypass: 0
+// // })
 
 // function handleTremoloOnOff() {
 
@@ -272,8 +387,6 @@ if (reverbActive == false) {
 
 
 
-
-
 /////////////////////////   This is the chain that connects it all together   ///////////////////////////////
 
 // track.connect(distortionNode);
@@ -283,11 +396,3 @@ if (reverbActive == false) {
 
 track.connect(gainNode).connect(boostNode).connect(distortionNode).connect(audioContext.destination);
 
-//track.connect(tremoloNode).connect(audioContext.destination);
-
-// track.connect(gainNode).connect(audioContext.destination);
-// track.connect(boostNode).connect(audioContext.destination);
-// track.connect(distortionNode).connect(audioContext.destination);
-
-
-//${distortionOutput}

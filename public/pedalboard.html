@@ -33,7 +33,7 @@
 
 <div class="stage">
     <h1>Digital Guitar PedalBoard</h1>
-    <h2>Please turn your speakers/headphones down to protect your ears.</h2>
+    <h2>WARNING: Please adjust your speakers/headphones to a lower volume before playing.</h2>
 
     <div class="cabinet">
         <div id="cabinetText">Cabinet</div>
@@ -41,15 +41,22 @@
         <div id="goldBanner">
 
 
-            <button id="masterSwitch" data-playing="false" role="switch" aria-checked="false"><span> Master Switch </span></button><br><br>
+            <button id="masterSwitch" class="masterSwitchOff" data-playing="false" role="switch" aria-checked="false"><span> Master Switch </span></button><br><br>
 
-            <div id="masterVolume"><div id="knob"></div><div id="dial"></div></div>
 
-            <div id="treble"><div id="knob"></div><div id="dial"></div></div>
 
-            <div id="mid"><div id="knob"></div><div id="dial"></div></div>
+            <div id="masterVolume" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+            <div class="cabMasterText">Master Vol</div>
 
-            <div id="bass"><div id="knob"></div><div id="dial"></div></div>
+
+            <div id="treble" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+            <div class="cabTrebleText">Treble</div>
+
+            <div id="mid" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+            <div class="cabMidText">Mid</div>
+
+            <div id="bass" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+            <div class="cabBassText">Bass</div>
 
 <!--
     
@@ -73,16 +80,21 @@
 
 
         <div class="boostPedal">
-            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
-            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div id="boostGain" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+
+            <div class="pedalText">Gain</div>
+            
             <div class="ledLightOff" id="boostLedLight"></div>
+
             <div id="boostOnSwitch" class="onSwitch"></div>
             <div class="text">Boost</div>
         </div>
 
         <div class="distortionPedal">
-            <div class="volume"></div>
-            <div class="tone"></div>
+            <div id="distortionFuzz" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+
+            <div class="pedalText">Fuzz</div>
+
             <div class="ledLightOff" id="distortionLedLight"></div>
             <div id="distortionOnSwitch" class="onSwitch"></div>
             <div class="text">Distortion</div>
@@ -91,28 +103,37 @@
         
 
         <div class="reverbPedal">
-            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
-            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+            <div id="reverbMix" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+            <div class="pedalText">Mix</div>
             <div class="ledLightOff" id="reverbLedLight"></div>
             <div id="reverbOnSwitch" class="onSwitch"></div>
             <div class="text">Reverb</div>
         </div>
 
 
-        <div class="tremoloPedal">
-            <div class="volume"><div id="knob"></div><div id="dial"></div></div>
-            <div class="tone"><div id="knob"></div><div id="dial"></div></div>
+        <!-- <div class="tremoloPedal">
+            <div id="tremoloVolume" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+
+            <div id="tremoloTone" class="virtual_knob draggable"><div class="knob"></div><div class="dial"></div></div>
+
             <div class="ledLightOff" id="tremoloLedLight"></div>
             <div id="tremoloOnSwitch" class="onSwitch"></div>
             <div class="text">Tremolo</div>
-        </div>
+        </div> -->
 
         
         </div><!--  pedalboard div end  -->
 
-        <input type="range" id="volume" min="0" max="10" value="1" step="0.5">Master Volume<br><br>
+        <input type="range" id="volume" min="1" max="4" value="1" step="1">Master Volume<br><br>
 
-        <input type="range" id="boostVolume" min="2" max="11" value="5" step="1">Boost Level<br><br>
+
+
+
+        <input type="range" id="boostRange" min="2" max="11" value="5" step="1">Boost Level<br><br>
+
+
+
+
 
         <input type="range" id="distortionTone" min="20" max="300" value="150" step="10"><br>Distortion Tone
 
@@ -122,10 +143,6 @@
       
 
 </div><!--  stage div end  -->
-
-
-
-<div id="virtual_knob"><div id="knob"></div><div id="dial"></div></div>
 
 
 
